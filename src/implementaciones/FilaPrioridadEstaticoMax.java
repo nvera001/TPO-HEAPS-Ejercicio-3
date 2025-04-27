@@ -9,22 +9,22 @@ public class FilaPrioridadEstaticoMax implements FilaPrioridadTDA{
         int prioridad;
     }
     Elemento [] elementos;  //Se asigna nodo a elementos.
-    int cantidad;  //Asigna una cantidad
+    int cantidad;  //Asigna una cantidad.
     int capacidad = 15; //Asigna capacidad de la fila.
 
     private int padre(int indice) {
-        return (indice - 1) / 2; //indice del heap padre. 
+        return (indice - 1) / 2; //Indice del heap padre. 
     }
 
     private int hijoIzq(int indice) {
-        return 2 * indice + 1; //Indice del hijo izq
+        return 2 * indice + 1; //Indice del hijo izquierdo.
     }
 
     private int hijoDer(int indice) {
-        return 2 * indice + 2; //Indice de hijo derecha
+        return 2 * indice + 2; //Indice de hijo derecho.
     }
 
-    public void InicializarFila() { //Se inicializa la fila
+    public void InicializarFila() { //Se inicializa la fila.
         elementos = new Elemento[capacidad]; 
         cantidad = 0; 
     }
@@ -36,7 +36,7 @@ public class FilaPrioridadEstaticoMax implements FilaPrioridadTDA{
         } else {
             elementos [cantidad] = new Elemento(); //Se crea un elemento.
             elementos [cantidad].valor = x; //Ingresa el valor del nuevo elemento.
-            elementos[cantidad].prioridad = prior;  //Ingresa la prioridad
+            elementos[cantidad].prioridad = prior;  //Ingresa la prioridad.
             flotar(cantidad); //Llama al metodo anterior, para ponerlo en su indice correcta.
             cantidad++; //Aumenta en uno la cantidad de la fila.
         }
@@ -48,7 +48,7 @@ public class FilaPrioridadEstaticoMax implements FilaPrioridadTDA{
             i = padre(i); //Pone la posición del padre.
         }
     }
-    private void swap(int i, int j) { //La i es el valor de la posición del padre, la j es el valor de la posición del hijo
+    private void swap(int i, int j) { //La i es el valor de la posición del padre, la j es el valor de la posición del hijo.
         int temporal = elementos[i].prioridad; // Guarda la prioridad del padre, para no sobreescribirlo.
         elementos[i].prioridad = elementos[j].prioridad; //La prioridad del hijo pasa a ser del padre.
         elementos[j].prioridad = temporal; //La prioridad del padre pasa a ser del hijo.
@@ -70,9 +70,9 @@ public class FilaPrioridadEstaticoMax implements FilaPrioridadTDA{
     }
 
     private void hundir(int i) {  //Organizar la fila
-        int izquierdo = hijoIzq(i); //Indice de hijo izq
-        int derecho = hijoDer(i); //Indice de hijo der
-        int mayor = i; //Indice de padre
+        int izquierdo = hijoIzq(i); //Indice de hijo izquierdo.
+        int derecho = hijoDer(i); //Indice de hijo derecho.
+        int mayor = i; //Indice de padre.
 
         if (izquierdo < cantidad && elementos[izquierdo].prioridad > elementos[mayor].prioridad) {
             mayor = izquierdo;
@@ -83,8 +83,8 @@ public class FilaPrioridadEstaticoMax implements FilaPrioridadTDA{
 
         }
         if (mayor != i) {
-            swap(i, mayor); //Los intercambia
-            hundir(mayor); //Los organiza
+            swap(i, mayor); //Los intercambia.
+            hundir(mayor); //Los organiza.
         }
     }
 
@@ -92,7 +92,7 @@ public class FilaPrioridadEstaticoMax implements FilaPrioridadTDA{
         return (cantidad == 0);
     }
 
-    public void mostrarComoArbol() { //Método que muestra claramente las funciones utilizadas.
+    public void mostrarComoArbol() { //Muestra de la fila.
         int niveles = (int) Math.floor(Math.log(cantidad) / Math.log(2)) + 1;
         int index = 0;
     

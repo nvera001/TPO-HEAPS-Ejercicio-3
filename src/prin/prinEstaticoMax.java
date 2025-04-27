@@ -23,13 +23,13 @@ public class prinEstaticoMax {
         // Se insertan valores dentro de la fila.
 
         System.out.println("El elemento padre de esta fila es: " + elemento.prioridad()+" , el cual tiene un valor de: "+elemento.Primero());
-        //Raiz de la fila y su valor.
+        //Valor y prioridad de la raiz.
         System.out.println(" ");
 
         System.out.println("Representación de la fila: ");
         elemento.mostrarComoArbol(); //Muestra de la fila.
         System.out.println(" ");
-        System.out.println("Se elimina el elemento padre: "+elemento.eliminar());
+        System.out.println("Se elimina el elemento padre: "+elemento.eliminar()); //Eliminación de raíz.
         System.out.println(" ");
         System.out.println("Después de la eliminación, la fila queda así: ");
         elemento.mostrarComoArbol(); //Muestra de la fila, despues de la eliminación de la raíz.
