@@ -52,6 +52,10 @@ public class FilaPrioridadEstaticoMax implements FilaPrioridadTDA{
         int temporal = elementos[i].prioridad; // Guarda la prioridad del padre, para no sobreescribirlo.
         elementos[i].prioridad = elementos[j].prioridad; //La prioridad del hijo pasa a ser del padre.
         elementos[j].prioridad = temporal; //La prioridad del padre pasa a ser del hijo.
+        int temporalval = elementos[i].valor; // Guarda el valor del padre, para no sobreescribirlo.
+        elementos[i].valor = elementos[j].valor; //El valor del hijo pasa a ser del padre.
+        elementos[j].valor = temporalval; //El valor del padre pasa a ser del hijo.
+
     }
 
     public int Primero() { //Retorna valor de la raiz.
